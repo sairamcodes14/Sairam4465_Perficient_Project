@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     timeout-minutes: 20
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,7 +16,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install chromium
       - run: npm test -- --project=chromium
         env:
           BASE_URL: https://automationexercise.com
